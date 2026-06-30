@@ -22,7 +22,7 @@ bool isStop = false, stopNote = false;
 
 // Segmented Sieve of Eratosthenes: Generates primes in [low, high) as comma-suffixed strings
 void segmentedSieve(uint64_t low, uint64_t high, vector<string>& primesOut) {
-	// Sieve works on odd numbers only (map x ¡ú (x - low)/2) ¨C handle 2 separately if in range
+	// Sieve works on odd numbers only (map x Â¡Ãº (x - low)/2) Â¨C handle 2 separately if in range
 	if (low <= 2 && high > 2) {
 		primesOut.emplace_back("2,");
 	}
@@ -65,7 +65,7 @@ void segmentedSieve(uint64_t low, uint64_t high, vector<string>& primesOut) {
 			stopNote = true;
 		}
 
-		// Find first multiple of p ¡İ low (must be odd, since p is odd and low is odd)
+		// Find first multiple of p Â¡Ã low (must be odd, since p is odd and low is odd)
 		uint64_t start = max(p * p, ((low + p - 1) / p) * p); // Ceiling division to get first multiple
 		// Ensure start is odd (redundant here, but safe-guard)
 		if ((start & 1) == 0) {
